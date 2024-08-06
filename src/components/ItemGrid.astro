@@ -1,0 +1,171 @@
+---
+const { idname, idimg  } = Astro.props;
+---
+
+<div id={idname? idname: null} class="wrap item"><img id={idimg? idimg: null} class="itemGrid" src="" alt=""></div>
+
+<script define:vars={{idname}}>
+// Lista de imágenes en la carpeta 'images'
+const images = [
+  '../assets/imgGrid/grid0.webp',
+  '../assets/imgGrid/grid1.webp',
+  '../assets/imgGrid/grid2.webp',
+  '../assets/imgGrid/grid3.webp',
+  '../assets/imgGrid/grid4.webp',
+  '../assets/imgGrid/grid5.webp',
+  '../assets/imgGrid/grid6.webp',
+  '../assets/imgGrid/grid7.webp',
+  '../assets/imgGrid/grid8.webp',
+  '../assets/imgGrid/grid9.webp',
+  '../assets/imgGrid/grid10.webp',
+  '../assets/imgGrid/grid11.webp',
+  '../assets/imgGrid/grid12.webp',
+  '../assets/imgGrid/grid13.webp',
+  '../assets/imgGrid/grid14.webp',
+  '../assets/imgGrid/grid15.webp',
+  '../assets/imgGrid/grid16.webp',
+  '../assets/imgGrid/grid17.webp',
+  '../assets/imgGrid/grid18.webp',
+  '../assets/imgGrid/grid19.webp',
+  '../assets/imgGrid/grid20.webp',
+  '../assets/imgGrid/grid21.webp',
+  '../assets/imgGrid/grid22.webp',
+  '../assets/imgGrid/grid23.webp',
+  '../assets/imgGrid/grid24.webp',
+  '../assets/imgGrid/grid25.webp',
+  '../assets/imgGrid/grid26.webp',
+  '../assets/imgGrid/grid27.webp',
+  '../assets/imgGrid/grid28.webp',
+  '../assets/imgGrid/grid29.webp',
+  '../assets/imgGrid/grid30.webp',
+  '../assets/imgGrid/grid31.webp',
+  '../assets/imgGrid/grid32.webp',
+  '../assets/imgGrid/grid33.webp',
+  '../assets/imgGrid/grid34.webp',
+  '../assets/imgGrid/grid35.webp',
+    // Añade más imágenes según sea necesario
+];
+
+function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+}
+
+function getRandomInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+async function showRandomImage() {
+    const imgElement = document.getElementById(idname);
+    const randomImage = getRandomImage();
+
+    // Asegúrate de que 'item' tenga un contenido IMG
+    if (!imgElement.querySelector('img')) {
+        const img = document.createElement('img');
+        imgElement.appendChild(img);
+    }
+
+        const img = imgElement.querySelector('img');
+    img.classList.remove('show');  // Quitar clase para reiniciar la transición
+
+    setTimeout(() => {
+        img.src = randomImage;
+        img.classList.add('show');  // Añadir clase para iniciar la transición
+    }, 300);  // Dar tiempo para reiniciar la transición
+
+    // Cambiar imagen en un intervalo aleatorio entre 2 y 5 segundos
+    const randomInterval = getRandomInterval(3000, 5000);
+    setTimeout(showRandomImage, randomInterval);
+}
+
+// Iniciar el proceso de mostrar imágenes aleatorias
+document.addEventListener('DOMContentLoaded', showRandomImage, false);
+</script>
+
+<style>
+.item img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.item img.show {
+    opacity: 1;
+}
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 14.5vh;
+  max-width: 130px;
+  min-height: 120px;
+  border: 2px solid rgb(103, 106, 109);
+  overflow: hidden;
+  animation: backgroundAnimation 5s infinite;
+}
+
+@keyframes backgroundAnimation {
+  0% { background-color: #B5C0D0; }
+  25% { background-color: #CCD3CA; }
+  50% { background-color: #F5E8DD; }
+  75% { background-color: #EED3D9; }
+  100% { background-color: #d5bd99; }
+}
+
+.itemGrid{
+    height: 100%;
+    object-fit: cover;
+    transform: scale(4.0);
+    animation-name: items;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-in;
+    transition: opacity 1.5s;
+    filter: sepia(40%) grayscale(80%) ;
+}
+
+.itemGrid:hover {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: sepia(0%) grayscale(0%) ;
+    transition: filter 0.8s;
+}
+
+@keyframes items {
+  0% {
+    opacity: 0;
+  } 100% {
+    opacity: 1;
+  }
+}
+
+#img {
+  margin: 50px 0px 15px 0px;
+}
+#img1 {
+  margin: 0px -70px 0px -50px;
+}
+#img2 {
+  margin: -13px 0px 80px 0px;
+}
+#img3 {
+  margin: 20px 0px 0px 80px;
+}
+#img4 {
+  margin: 0px 50px 100px 0px;
+}
+#img5 {
+  margin: 100px 0px 50px 0px;
+}
+#img6 {
+  margin: 30px 0px 100px 0px;
+}
+#img7 {
+  margin: 50px 30px 10px 7px;
+}
+#img8 {
+  margin: 0px -100px -10px 20px;
+}
+#img9 {
+  margin: 50px 45px -10px 0px;
+}
+#img10 {
+  margin: 6px 45px 0px -70px;
+}
+
+</style>

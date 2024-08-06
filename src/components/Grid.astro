@@ -1,0 +1,35 @@
+---
+import ItemGrid from './ItemGrid.astro';
+---
+
+<section class="menuGrid">
+  <ItemGrid idname = "item"  idimg = "img"/>
+  <ItemGrid idname = "item1" idimg = "img1"/>
+  <ItemGrid idname = "item2" idimg = "img2"/>
+  <ItemGrid idname = "item3" idimg = "img3"/>
+  <ItemGrid idname = "item4" idimg = "img4"/>
+  <ItemGrid idname = "item5" idimg = "img5"/>
+  <ItemGrid idname = "item6" idimg = "img6"/>
+  <div class="logoJP"><img id="logoJP" src="assets/logoJP.svg"/></div>
+  <ItemGrid idname = "item7" idimg = "img7"/>
+  <ItemGrid idname = "item8" idimg = "img8"/>
+  <ItemGrid idname = "item9" idimg = "img9"/>
+  <ItemGrid idname = "item10" idimg = "img10"/>
+</section>
+
+<style>
+.menuGrid{
+  max-width: 450px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
+}
+.logoJP{
+  display: block;
+  margin: auto;
+}
+#logoJP{
+  max-height: 95px;
+}
+</style>
