@@ -4,7 +4,8 @@ const { idname, idimg  } = Astro.props;
 
 <div id={idname? idname: null} class="wrap item"><img id={idimg? idimg: null} class="itemGrid" src="" alt=""></div>
 
-<script define:vars={{idname}}>
+<!-- <script define:vars={{idname}}> -->
+<script >
 // Lista de imágenes en la carpeta 'images'
 const images = [
   '../assets/imgGrid/grid0.webp',
@@ -55,31 +56,50 @@ function getRandomInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-async function showRandomImage() {
-    const imgElement = document.getElementById(idname);
-    const randomImage = getRandomImage();
+function showRandomImage() {
+    // const imgElement = document.getElementById(idname);
+    const imgElement = document.querySelectorAll("div.item");
 
     // Asegúrate de que 'item' tenga un contenido IMG
-    if (!imgElement.querySelector('img')) {
-        const img = document.createElement('img');
-        imgElement.appendChild(img);
+    for (let i = 0; i < imgElement.length; i++) {
+      let item = imgElement[i];
+      if (!item.querySelector('img')) {
+          const img = document.createElement('img');
+          item.appendChild(img);
+      }
+        const img = item.querySelector('img');
+        const randomImage = getRandomImage();
+        const randomInterval = getRandomInterval(300, 1500);
+        img.classList.remove('show');  // Quitar clase para reiniciar la transición
+      setTimeout(() => {
+          img.src = randomImage;
+          img.classList.add('show');  // Añadir clase para iniciar la transición
+      }, randomInterval);  // Dar tiempo para reiniciar la transición
     }
 
-        const img = imgElement.querySelector('img');
-    img.classList.remove('show');  // Quitar clase para reiniciar la transición
-
-    setTimeout(() => {
-        img.src = randomImage;
-        img.classList.add('show');  // Añadir clase para iniciar la transición
-    }, 300);  // Dar tiempo para reiniciar la transición
-
-    // Cambiar imagen en un intervalo aleatorio entre 2 y 5 segundos
-    const randomInterval = getRandomInterval(3000, 5000);
-    setTimeout(showRandomImage, randomInterval);
+    // const randomInterval = getRandomInterval(2500, 3000);
+    setTimeout(showRandomImage, 3000);
 }
 
 // Iniciar el proceso de mostrar imágenes aleatorias
 document.addEventListener('DOMContentLoaded', showRandomImage, false);
+
+function changeBackgroundImage() {
+    const wrap = document.querySelectorAll('.wrap');
+    const randomIndex = Math.floor(Math.random() * images.length);
+    for (let i = 0; i < wrap.length; i++) {
+    let item = wrap[i];
+    item.style.backgroundImage = `url(${images[randomIndex]})`;
+          }
+        }
+
+// Cambiar la imagen de fondo al cargar la página
+changeBackgroundImage();
+
+// Cambiar la imagen de fondo cada cierto tiempo (ejemplo: cada 5 segundos)
+setInterval(changeBackgroundImage, 3000);
+
+document.addEventListener('DOMContentLoaded', changeBackgroundImage, false);
 </script>
 
 <style>
@@ -99,15 +119,20 @@ document.addEventListener('DOMContentLoaded', showRandomImage, false);
   border: 2px solid rgb(103, 106, 109);
   overflow: hidden;
   animation: backgroundAnimation 5s infinite;
+  background-image: url('../assets/imgGrid/grid1.webp');
+  background-position: center;
+  background-origin: border-box;
+  background-attachment: fixed;
+  transition: opacity 1.5s;
 }
 
-@keyframes backgroundAnimation {
-  0% { background-color: #B5C0D0; }
-  25% { background-color: #CCD3CA; }
-  50% { background-color: #F5E8DD; }
-  75% { background-color: #EED3D9; }
-  100% { background-color: #d5bd99; }
-}
+/* @keyframes backgroundAnimation { */
+/*   0% { background-color: #c6d2e2; } */
+/*   25% { background-color: #dde3db; } */
+/*   50% { background-color: #F5E8DD; } */
+/*   75% { background-color: #ffe5eb; } */
+/* 100% { background-color: #f8dfcc; } */
+/* } */
 
 .itemGrid{
     height: 100%;

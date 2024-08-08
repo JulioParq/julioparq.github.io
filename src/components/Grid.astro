@@ -2,7 +2,22 @@
 import ItemGrid from './ItemGrid.astro';
 ---
 
-<section class="menuGrid">
+<script>
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        // Recargar la página cuando vuelva a ser visible
+        location.reload();
+    }
+});
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        // Si la página se carga desde la caché del navegador, recárgala
+        location.reload();
+    }
+});
+</script>
+
+<section class="menuGrid" id=grid>
   <ItemGrid idname = "item"  idimg = "img"/>
   <ItemGrid idname = "item1" idimg = "img1"/>
   <ItemGrid idname = "item2" idimg = "img2"/>
