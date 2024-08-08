@@ -52,7 +52,7 @@ function getRandomImage() {
     return images[randomIndex];
 }
 
-function getRandomInterval(min, max) {
+function getRandomInterval(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -67,10 +67,10 @@ function showRandomImage() {
           const img = document.createElement('img');
           item.appendChild(img);
       }
-        const img = item.querySelector('img');
-        const randomImage = getRandomImage();
-        const randomInterval = getRandomInterval(300, 1500);
-        img.classList.remove('show');  // Quitar clase para reiniciar la transición
+      const img = item.querySelector('img');
+      const randomImage = getRandomImage();
+      const randomInterval = getRandomInterval(300, 1800);
+      img.classList.remove('show');  // Quitar clase para reiniciar la transición
       setTimeout(() => {
           img.src = randomImage;
           img.classList.add('show');  // Añadir clase para iniciar la transición
@@ -88,7 +88,7 @@ function changeBackgroundImage() {
     const wrap = document.querySelectorAll('.wrap');
     const randomIndex = Math.floor(Math.random() * images.length);
     for (let i = 0; i < wrap.length; i++) {
-    let item = wrap[i];
+    let item = wrap[i] as HTMLElement;
     item.style.backgroundImage = `url(${images[randomIndex]})`;
           }
         }
