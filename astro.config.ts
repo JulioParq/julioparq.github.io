@@ -6,36 +6,31 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://julioparq.github.io/',
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    react(),
-    sitemap(),
-  ],
+  integrations: [tailwind({
+    applyBaseStyles: false
+  }), react(), sitemap(), mdx()],
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [
-        remarkCollapse,
-        {
-          test: "Table of contents",
-        },
-      ],
-    ],
+    remarkPlugins: [remarkToc, [remarkCollapse, {
+      test: "Table of contents"
+    }]],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
-      themes: { light: "github-light-default", dark: "min-dark" },
-      wrap: true,
-    },
+      themes: {
+        light: "github-light-default",
+        dark: "min-dark"
+      },
+      wrap: true
+    }
   },
   vite: {
     optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
-    },
+      exclude: ["@resvg/resvg-js"]
+    }
   },
-  scopedStyleStrategy: "where",
+  scopedStyleStrategy: "where"
 });

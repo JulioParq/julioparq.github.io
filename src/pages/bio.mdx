@@ -3,9 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "Bio"
 ---
 
-<div class= place-content-start >
-<img src="/assets/me.webp" class="mx-auto imgMe" alt="me">
-</div>
+import TimeLine from '../components/TimeLine.astro';
 
 Julio Pérez is an accomplished architect with over a decade of experience in the field. His creative and curious nature, coupled with his exceptional capacity for analysis and abstract thinking, allows him to approach architectural challenges from unique and innovative perspectives.
 
@@ -13,23 +11,9 @@ Transdisciplinary expertise, enriched by his studies in mathematics and the arts
 
 ## Education
 
-### MA in Archictect
-**UdeC** / 2011 - 2012 📍 Celaya, Gto.
-
-### BSc in Math
-**UnADM** / 2018 - 2022 🌐 online
-
-### BA in Visual Art
-**UAQ** / 2002 - 2006 📍 Querétaro, Qro..
+<TimeLine fecha = "2018 - 2022" grado = "BSc in Math" inst = "UnADM" lugar = "🌐 online"/>
+<TimeLine fecha = "2011 - 2012" grado = "MA in Architect" inst = "UdeC" lugar = "Celaya, Gto."/>
+<TimeLine fecha = "2002 - 2006" grado = "BA in Visual Art" inst = "UAQ" lugar = "Celaya, Gto."/>
 
 
 [download CV](../CV_JCPG.pdf)
-
-<style>
-.imgMe{
-    width: 120px;
-    height: auto;
-    float: left;
-    position: relative;
-}
-</style>
