@@ -21,8 +21,17 @@ const { frontmatter } = Astro.props;
   <main id="main-content">
     <section id="about" class="prose mb-28 max-w-3xl prose-img:border-0">
       <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
+      <div class= "place-content-start imgMe" >
+          <img src="/assets/me.webp" class="mx-auto" alt="me"/>
+      </div>
       <slot />
     </section>
   </main>
   <Footer />
 </Layout>
+
+<style>
+.imgMe{
+    width: 120px;
+}
+</style>
