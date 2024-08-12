@@ -6,7 +6,7 @@ export const SITE: Site = {
   profile: "https://julioparq.github.io",
   desc: "Personal page Julio Parq",
   title: "Julio Parq",
-  ogImage: "JP.jpg",
+  ogImage: "og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
@@ -14,8 +14,8 @@ export const SITE: Site = {
 };
 
 export const LOCALE = {
-  lang: "es", // html lang code. Set this empty and default will be "en"
-  langTag: ["es-Es"], // BCP 47 Language Tags. Set this empty [] to use the environment default
+  lang: "en", // html lang code. Set this empty and default will be "en"
+  langTag: ["en-En"], // BCP 47 Language Tags. Set this empty [] to use the environment default
 } as const;
 
 export const LOGO_IMAGE = {
@@ -54,13 +54,13 @@ export const SOCIALS: SocialObjects = [
     name: "Mail",
     href: "mailto:julioparq81@gmail.com",
     linkTitle: `Send an email to ${SITE.title}`,
-    active: false,
+    active: true,
   },
   {
     name: "Twitter",
     href: "https://x.com/zagenvan",
     linkTitle: `${SITE.title} on Twitter`,
-    active: true,
+    active: false,
   },
   {
     name: "Twitch",
@@ -145,5 +145,11 @@ export const SOCIALS: SocialObjects = [
     href: "https://julioparq.github.io",
     linkTitle: `${SITE.title} on Mastodon`,
     active: false,
+  },
+  {
+    name: "X",
+    href: "https://x.com/zagenvan",
+    linkTitle: `${SITE.title} on Mastodon`,
+    active: true,
   },
 ];

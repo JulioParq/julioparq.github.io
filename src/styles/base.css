@@ -30,6 +30,9 @@
   html[data-theme="dark"] #sun-svg {
     display: block;
   }
+  html[data-theme="dark"]  svg.icon-tabler {
+      stroke-width: 1.25;
+  }
   body {
     @apply flex min-h-[100svh] flex-col bg-skin-fill font-sans text-skin-base 
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
@@ -46,8 +49,9 @@
     @apply inline-block h-6 w-6 fill-skin-base group-hover:fill-skin-accent;
   }
   svg.icon-tabler {
+    stroke-width: 1.5;
     @apply inline-block h-6 w-6 scale-125 fill-transparent 
-    stroke-current stroke-2 opacity-90 group-hover:fill-transparent 
+    stroke-current opacity-90 group-hover:fill-transparent 
     sm:scale-110;
   }
   .prose {
