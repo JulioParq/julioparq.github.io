@@ -1,6 +1,6 @@
 ---
 author: Julio Pérez
-pubDatetime: 2024-08-14T09:30:41.816Z
+pubDatetime: 2024-08-13T09:30:41.816Z
 title: Análisis estructural de edificaciones tipo C por métodos numéricos y herramientas de codigo abierto
 slug: "mnumericos"
 featured: true

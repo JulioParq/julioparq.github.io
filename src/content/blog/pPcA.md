@@ -1,6 +1,6 @@
 ---
 author: Julio Pérez
-pubDatetime: 2024-08-13T09:30:41.816Z
+pubDatetime: 2024-08-11T09:30:41.816Z
 title: Una prótesis programática, la Prótesis y comprensión del Arte
 slug: "pPcA"
 featured: true

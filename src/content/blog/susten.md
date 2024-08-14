@@ -1,6 +1,6 @@
 ---
 author: Julio Pérez
-pubDatetime: 2024-08-14T07:30:41.816Z
+pubDatetime: 2024-08-12T07:30:41.816Z
 title: De la lógica del sostener a la especificidad de la sustentabilidad
 slug: "susten"
 featured: true
