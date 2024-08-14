@@ -21,6 +21,7 @@ const blog = defineCollection({
         .optional(),
       description: z.string(),
       canonicalURL: z.string().optional(),
+      heroImage: z.string().optional(),
     }),
 });
 

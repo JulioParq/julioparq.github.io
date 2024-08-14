@@ -13,14 +13,14 @@ const wordsPosts = sortedPosts.filter(({ data }) => data.words);
 ---
 
 <Layout>
-  <Header activeNav="words"/>
+  <Header activeNav="text"/>
   <main id="main-content" transition:animate="fade">
     {
       wordsPosts.length > 0 && (
         <>
-          <section id="featured">
+          <section id="words">
             <h2>Words</h2>
-            <ul>
+            <ul class="containerCards" >
               {wordsPosts.map(({ data, slug }) => (
                 <Card
                   href={`/posts/${slug}/`}
@@ -29,16 +29,27 @@ const wordsPosts = sortedPosts.filter(({ data }) => data.words);
                 />
               ))}
             </ul>
+            <html lang="en">
+              <head>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width" />
+                <meta name="generator" content={Astro.generator} />
+                <title>Document</title>
+              </head>
+              <body>
+                
+              </body>
+            </html>
           </section>
         </>
       )
     }
-
   </main>
   <Footer />
 </Layout>
 
 <style>
+
   /* ===== Hero Section ===== */
   #hero {
     @apply pb-6 pt-8;
@@ -63,11 +74,11 @@ const wordsPosts = sortedPosts.filter(({ data }) => data.words);
   }
 
   /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
+  #words,
   #recent-posts {
     @apply pb-6 pt-12;
   }
-  #featured h2,
+  #words h2,
   #recent-posts h2 {
     @apply text-2xl font-semibold tracking-wide;
   }
