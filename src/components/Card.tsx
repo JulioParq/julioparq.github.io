@@ -17,10 +17,10 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
   };
 
   return (
-    <li className="my-1 bg-zinc-500 p-3 bg-opacity-20 hover:bg-opacity-10">
+    <li className="transition-transform duration-200 my-1 bg-zinc-500 p-3 bg-opacity-20 hover:bg-opacity-10 hover:scale-[1.025]">
       <a
         href={href}
-        className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0 hover:rotate-1"
+        className="transition-transform duration-100 inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0 hover:translate-y-0.5"
       >
         <img className="mb-1 " src={heroImage} alt="" />
         {secHeading ? (
